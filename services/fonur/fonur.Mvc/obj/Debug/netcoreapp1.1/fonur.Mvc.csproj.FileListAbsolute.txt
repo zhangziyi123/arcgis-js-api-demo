@@ -1,0 +1,9 @@
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\bin\Debug\netcoreapp1.1\fonur.Mvc.deps.json
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\bin\Debug\netcoreapp1.1\fonur.Mvc.runtimeconfig.json
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\bin\Debug\netcoreapp1.1\fonur.Mvc.runtimeconfig.dev.json
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\bin\Debug\netcoreapp1.1\fonur.Mvc.dll
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\bin\Debug\netcoreapp1.1\fonur.Mvc.pdb
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\obj\Debug\netcoreapp1.1\fonur.Mvc.csprojResolveAssemblyReference.cache
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\obj\Debug\netcoreapp1.1\fonur.Mvc.AssemblyInfo.cs
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\obj\Debug\netcoreapp1.1\fonur.Mvc.dll
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonur\fonur.Mvc\obj\Debug\netcoreapp1.1\fonur.Mvc.pdb

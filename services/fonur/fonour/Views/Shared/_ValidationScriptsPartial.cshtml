@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>这里是布局页面的内容，一般是统一的样式、菜单等各个页面共性部分</h1>
+    <div>
+        <!--当创建基于_Layout.cshtml布局页面的视图时，视图的内容会和布局页面合并，视图的内容会渲染呈现在@RenderBody()处-->
+        @RenderBody()
+    </div>
+</body>
+</html>
