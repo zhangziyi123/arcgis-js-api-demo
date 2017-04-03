@@ -1,0 +1,4 @@
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonour\Fonour.Domain\bin\Debug\netcoreapp1.1\Fonour.Domain.deps.json
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonour\Fonour.Domain\bin\Debug\netcoreapp1.1\Fonour.Domain.dll
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonour\Fonour.Domain\obj\Debug\netcoreapp1.1\Fonour.Domain.csprojResolveAssemblyReference.cache
+F:\myproject\arcgis4.x\arcgis-js-api-demo\services\fonour\Fonour.Domain\obj\Debug\netcoreapp1.1\Fonour.Domain.AssemblyInfo.cs
