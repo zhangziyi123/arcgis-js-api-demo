@@ -133,6 +133,6 @@ F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\bin\zh-Hans\System.Web.R
 F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\obj\Debug\webApi.csprojResolveAssemblyReference.cache
 F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\obj\Debug\webApi.dll
 F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\obj\Debug\webApi.pdb
+F:\myproject\arcgis4.x\arcgis-js-api-demo\webApi\webApi\obj\Debug\webApi.csprojResolveAssemblyReference.cache
