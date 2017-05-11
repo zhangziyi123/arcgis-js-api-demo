@@ -12,8 +12,24 @@
             width: 100%;
         }
     </style>
+    <script>
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            //baseUrl:'/js/',
+            packages: [{
+                name: "js",
+                location: package_path,
+            }, {
+                name: "css",
+                location: package_path+"css"
+            }],
+            parseOnLoad: true,
+            locale: "zh-cn"
+        };
+    </script>
     <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
     <script src="https://js.arcgis.com/4.3/"></script>
+
     <script>
         require([
             "esri/Map",
@@ -33,8 +49,13 @@
             });
         });
     </script>
+
 </head>
 <body>
 <div id="viewDiv"></div>
 </body>
 </html>
+
+
+<script src="core/app.js"></script>
+
