@@ -1,0 +1,27 @@
+<div class="${options.theme}" role="presentation">
+    <div data-dojo-attach-point="_widgetContainer" class="${_widgetContainerClass}" role="presentation">
+        <div class="${_stopsContainerClass}" data-dojo-attach-point="_dndNode" role="presentation">
+            <table class="${_stopsClass}" data-dojo-attach-point="_dndNode"></table>
+            <div class="${_clearClass}" role="presentation"></div>
+            <div class="${_stopsButtonContainerClass}">
+                <div role="button" class="${_stopsAddDestinationClass}" data-dojo-attach-point="_addDestinationNode" data-dojo-attach-event="ondijitclick:_addStopButton">${_i18n.widgets.directions.addDestination}</div>
+                <div role="button" class="${_stopsOptionsButtonClass}" data-dojo-attach-point="_optionsButtonNode" data-dojo-attach-event="ondijitclick:_toggleOptionsMenu">${_i18n.widgets.directions.showOptions}</div>
+            	<div class="${_clearClass}" role="presentation"></div>
+            </div>
+            <div role="presentation" class="${_stopsOptionsMenuClass}" data-dojo-attach-point="_optionsMenuNode">
+                <ul>
+                    <li class="${_stopsFindOptimalOrderClass}"><input data-dojo-attach-point="_findOptimalOrderNode" type="checkbox" id="${id}_find_optimal_order" /><label for="${id}_find_optimal_order">${_i18n.widgets.directions.findOptimalOrder}</label></li>
+                </ul>
+                <div class="${_clearClass}" role="presentation"></div>
+            </div>
+            <div class="${_stopsGetDirectionsContainerClass}">
+                <div role="button" class="${_stopsGetDirectionsClass}" data-dojo-attach-event="ondijitclick:_directionsButton">${_i18n.widgets.directions.getDirections}</div>
+                <div class="${_clearClass}" role="presentation"></div>
+            </div>
+    	</div>
+    	<div class="${_clearClass}" role="presentation"></div>
+    	<div class="${_resultsContainerClass}" role="presentation">
+        	<div class="${_routesContainerClass}" data-dojo-attach-point="_resultsNode" role="presentation"></div>
+    	</div>
+    </div>
+</div>

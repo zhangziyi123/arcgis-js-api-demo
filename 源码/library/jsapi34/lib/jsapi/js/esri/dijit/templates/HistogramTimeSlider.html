@@ -1,0 +1,54 @@
+<div class="esriTimeSlider esriHistogramTimeSlider">
+   <div id="temporal" class="bottom_overlay" style="height:189px">
+      <div id='temporal_controls'>
+        <div id="focusControls" class="header">
+        <button class="play" id="play" data-dojo-attach-point="playButton">
+          <div id="playInternal" class="play-mode"></div>
+          <h1 id="temporalTitle" class="play temporal-title" style="margin-top:-1px">PLAY</h1>
+        </button>
+        <!--<h1 id="temporalTitle" class="play" style=""><button dojoType="dijit.form.Button" showLabel="false" iconClass="tsButton tsPlayButton" dojoAttachEvent="onClick:_onPlay" dojoAttachPoint="playPauseBtn" type="button">${NLS_play}</button></h1>-->
+        <div id="playModeChooser" class="fg-buttonset fg-buttonset-single">
+          <button id="rangeMode" class="range-mode fg-button ui-state-default ui-priority-primary ui-corner-left ui-state-active" value="range" data-dojo-attach-point="rangeMode">range</button>
+          <button id="cumulativeMode"class="cumulative-mode fg-button ui-state-default ui-priority-primary ui-corner-right" value="cumulative" data-dojo-attach-point="cumulativeMode">cumulative</button>
+          </div>
+        <div class="focus-range" id="focusRange" data-dojo-attach-point="focusRange"></div>
+      </div>
+       <div id="chartsContainer">
+          <div id="focusContainer">
+          <div id="pageHolder_left">
+            <button class="pg-left" id="page_left" data-dojo-attach-point="pageLeft"></button>
+          </div>
+          <div id="focusChartHolder" class="focusChart" data-dojo-attach-point="focusChart">
+            <div class="focus-annotation" id="focusAnnotation" data-dojo-attach-point="focusAnnotation"></div>
+            <div class="focus" id="focus" data-dojo-attach-point="focus"></div>
+            <div id="resolutionChooser" class="res-chooser fg-buttonset fg-buttonset-single" data-dojo-attach-point="resChooser">
+              <button id="esriTimeUnitsSeconds" class="fg-button ui-state-default ui-priority-primary ui-corner-left" value="second">sec</button>
+              <button id="esriTimeUnitsMinutes" class="fg-button ui-state-default ui-priority-primary" value="minute">min</button>
+              <button id="esriTimeUnitsHours" class="fg-button ui-state-default ui-priority-primary" value="hour">hh</button>
+              <button id="esriTimeUnitsDays" class="fg-button ui-state-default ui-priority-primary" value="day">dd</button>
+              <button id="esriTimeUnitsMonths" class="fg-button ui-state-default ui-priority-primary" value="month">mm</button>
+              <button id="esriTimeUnitsYears" class="fg-button ui-state-default ui-priority-primary ui-corner-right" value="year">yy</button>
+            </div>
+            <div id="focusTip"></div>
+          </div>
+          <div id="pageHolder_right" >
+            <button class="pg-right" id="page_right" data-dojo-attach-point="pageRight"></button>
+          </div>
+        </div>
+        <div class="overview-container" id="overviewContainer" data-dojo-attach-point="overviewContainer">
+          <div id="overviews">
+            <div class="overview-annotation" id="overviewAnnotation" data-dojo-attach-point="overviewAnnotation"></div>
+            <div class="overview" id="overview" data-dojo-attach-point="overview"></div>
+            <div class="overview-blockers" id="overviewBlockers" data-dojo-attach-point="overviewBlockers"></div>
+            <div class="overview-slider" id="overviewSlider" data-dojo-attach-point="overviewSlider"></div>
+          </div>
+        </div>
+        <div id="overviewControls">
+          <!--<button id="hideOverview" class="hide"></button>-->
+          <h1 id="overviewTitle">OVERVIEW</h1>
+          <p id="overviewRange">(full range: <span class="overview-range-span" id="overviewRangeSpan" data-dojo-attach-point="overviewRangeSpan"></span>)</p>
+        </div>
+        </div>
+    </div>
+   </div>
+</div>
