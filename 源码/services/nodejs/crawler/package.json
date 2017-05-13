@@ -1,0 +1,21 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "nodejs test",
+  "main": "app/index.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "multer": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babelify": "^7.3.0"
+  },
+  "scripts": {
+    "build": "babel js_ES6 -d js_ES5"
+  },
+  "author": "zzy",
+  "license": "ISC"
+}

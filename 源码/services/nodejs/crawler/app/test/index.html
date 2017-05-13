@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script type="module" src="test.js"></script>
+    <script type="module">
+     /*   浏览器无法加载模块*/
+        import {firstName, lastName, year} from './index';
+
+        export function area(radius) {
+            return Math.PI * radius * radius;
+        }
+
+        export function circumference(radius) {
+            return 2 * Math.PI * radius;
+        }
+console.log(area(12));
+    </script>
+</head>
+<body>
+<span style="font-size:18px;">export {
+  age as AGE1,
+  age as AGE2,
+  height as HEIGHT
+};</span>
+</body>
+</html>

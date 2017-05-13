@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>欢迎登录</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/md5.js"></script>
+</head>
+<body>
+      <div class="container" style="margin-top:180px; ">
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">登录学生管理系统</div>
+                <div class="panel-body">
+                    <div action="/account/login" method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="uname" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="uname" id="usernameId" placeholder="请输入用户名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="pwd" id="passwordId" placeholder="请输入密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd" class="col-sm-2 control-label">验证码</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="vcodeId" class="form-control" name="vcode" placeholder="请输入验证码">
+                            </div>
+                            <div class="col-sm-3">
+                                <img id="vcodeimg" src="/account/vcode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <!-- submit有一个默认的提交行为，不要加上 -->
+                                <!-- <button type="submit" onclick="login()"  class="btn btn-default">登录</button> -->
+                                <button onclick="login()"  class="btn btn-default">登录</button>
+                                <input  onclick="register();" type="button"  value="注册" class="btn btn-danger">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $("#vcodeimg").click(function(){
+        //在url地址后面加入一个随机数，防止浏览器缓存，以便点击图片的时候可以切换验证码
+        $("#vcodeimg").attr('src','/account/vcode?vid='+Math.random());
+    })
+
+    //登录
+    function login(){
+        var username = $("#usernameId").val();
+        var password = $("#passwordId").val();
+        var vcode = $("#vcodeId").val();
+
+        //对密码进行加盐之后md5处理
+        password = $.md5(password+"QWEzxc110");
+
+        //发送post请求
+        $.post({
+            url:'/account/login',
+            data:'username='+username+"&password="+password+"&vcode="+vcode,
+            success:function(jsObj){
+                if (jsObj.status==1) {
+                    window.location.href="/studentmanager/list?everyPageCount=2&currentPageIndex=0";
+                }else{
+                    $("#vcodeimg").attr('src','/account/vcode?vid='+Math.random());
+                    alert(jsObj.message);
+                    return
+                }
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+    }
+
+
+    //注册
+    function register(){
+        window.location.href="/account/register"
+    }
+
+</script>
+</html>

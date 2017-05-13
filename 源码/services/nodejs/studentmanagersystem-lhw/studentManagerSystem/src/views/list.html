@@ -1,0 +1,121 @@
+{{extend ("./parent.html")}}
+
+{{#block ("body")}}
+        <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ol class="breadcrumb">
+                            <li><a href="#">首页</a></li>
+                            <li><a href="#">学生管理</a></li>
+                            <li class="active">学生列表</li>
+                        </ol>
+                    </div>
+                    <div class="panel-heading">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">学生姓名</span>
+                            <input type="text" class="form-control" id="studentName" placeholder="请输入学生姓名进行查询" aria-describedby="basic-addon1" style="width:200px;margin-right:10px;" value="{{keyword}}">
+                            <input type="button" class="btn btn-success" onclick='search()' value="查找" style="margin-right:10px;">
+                            <input type="button" class="btn btn-success" value="新增" onclick="window.location='/studentmanager/add'">
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>性别</th>
+                                    <th>手机号码</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each(array)}}
+                                     <tr>
+                                        <td>{{this.name}}</td>
+                                        <td>{{this.age}}</td>
+                                        <td>{{this.sex}}</td>
+                                        <td>{{this.phone}}</td>
+                                        <td>
+                                            <a href="/studentmanager/edit/{{this._id}}" class ="btn btn-success" >编辑</a> |
+
+                                            <input type="button" class ="btn btn-danger" onclick="del('{{this._id}}')" value="删除">
+                                        </td>
+                                     </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                         <!-- 分页组件 -->
+                       <nav aria-label="Page navigation">
+                          <ul class="pagination">
+                              <!-- 上翻页 -->
+                                {{#if( currentPageIndex<=0 )}}
+                                    <li class="disabled">
+                                        <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                                    </li>
+                                {{else}}
+                                  <li>
+                                      <a href="/studentmanager/list?currentPageIndex={{currentPageIndex-1}}&everyPageCount=2&keyword={{keyword}}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                                  </li>
+                                {{/if}}
+                                 <!-- 分页的每个item -->
+                                 {{#each(totalPageArray)}}
+                                    {{#if( currentPageIndex===this )}}
+                                        <li class="active"><a href="/studentmanager/list?currentPageIndex={{this}}&everyPageCount=2&keyword={{keyword}}">{{this+1}}</a></li>
+                                   {{else}}
+                                        <li><a href="/studentmanager/list?currentPageIndex={{this}}&everyPageCount=2&keyword={{keyword}}">{{this+1}}</a></li>
+                                   {{/if}}
+                                {{/each}}
+                              <!--下翻页-->
+                              {{#if( currentPageIndex >= totalPage-1 )}}
+                                  <li class="disabled">
+                                      <a href="#" aria-label="Next">
+                                          <span aria-hidden="true">&raquo;</span>
+                                      </a>
+                                  </li>
+                              {{else}}
+                              <li>
+                                  <a href="/studentmanager/list?currentPageIndex={{currentPageIndex+1}}&everyPageCount=2&keyword={{keyword}}" aria-label="Next">
+                                      <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                              </li>
+                              {{/if}}
+                          </ul>
+                        </nav>
+                    </div>
+
+     </div>
+
+    <script>
+        function search() {
+            //1.获取文本框中的关键字
+            var keyword = $("#studentName").val()
+
+            /*if (keyword==null || keyword=='') {
+             alert("请输入要搜索的关键字");
+             return
+             }*/
+
+            //window.location.href="xxx"适用于整个页面刷新
+            //ajax 局部刷洗
+            window.location.href='/studentmanager/list?currentPageIndex=0&everyPageCount=2&keyword='+keyword;
+        }
+
+        function del(studentId) {
+            //提醒用户
+            if(confirm("确认删除吗?")){
+                //发送ajax请求
+                //成功: {status:1,message:"删除成功"}
+                //失败:{status:0,message:"删除失败"}
+                const url = '/studentmanager/delete/'+studentId;
+                $.getJSON(url,null,function(jsObj){
+                    if (jsObj.status==0) {
+                        alert(jsObj.message);
+                    }else{
+                        window.location.href="/studentmanager/list?everyPageCount=2&currentPageIndex=0";
+                    }
+                })
+            }
+        }
+    </script>
+    
+{{/block}}
