@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Get started with MapView - Create a 2D map</title>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <style>
+        html,
+        body,
+        #map {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #layerToggle {
+            top: 20px;
+            right: 20px;
+            position: absolute;
+            z-index: 99;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            opacity: 0.75;
+        }
+    </style>
+    <script>
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            //baseUrl:'/js/',
+            packages: [{
+                name: "js",
+                location: package_path,
+            }, {
+                name: "css",
+                location: package_path+"css"
+            }],
+            parseOnLoad: true,
+            locale: "zh-cn"
+        };
+    </script>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <script src="https://js.arcgis.com/3.20/"></script>
+    <script>
+        require([
+            "esri/map",
+            "dojo/dom",
+            "dojo/on",
+            "esri/config",
+            "js/wmtsLayer",
+            "dojo/domReady!"
+        ], function(Map, dom, on,esriConfig,wmtsLayer){
+            // 设置esriConfig
+            var setEsriConfig=function () {
+                esriConfig.defaults.io.proxyUrl = "proxy.ashx?";
+                esriConfig.defaults.io.alwaysUseProxy = false;
+                //esriConfig.defaults.geometryService = new GeometryService(config.url.geometryServiceUrl);
+            };
+            setEsriConfig();
+            var map = new Map("map", {
+                center: [-118, 34.5],
+                zoom: 8,
+                basemap: "topo"
+            });
+
+            debugger;
+            var options = {
+                serviceMode: "KVP"
+            };
+
+            var tileLayer=new wmtsLayer("http://t0.tianditu.com/vec_c/wmts?service=wmts",options);
+
+
+        });
+    </script>
+</head>
+<body>
+<div id="map"></div>
+<span id="layerToggle">
+    <input type="checkbox" id="streetsLyr"> Transportation
+  </span>
+</body>
+</html>
